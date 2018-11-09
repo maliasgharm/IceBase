@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.noandish.library.icebase"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application>
+        <service
+            android:name=".socket.ServiceClient"
+            android:stopWithTask="false" />
+        <activity android:theme="@style/Theme.Transparent" android:name=".ActivityStartService" />
+    </application>
+</manifest>
