@@ -13,14 +13,17 @@ import org.noandish.library.icebase.ActivityStartService
 
 
 open class SocketIOApplication : MultiDexApplication(), OnChangeStatusSocketListener, OnMessasgeReceive {
+    private val socketIOApplication: SocketIOApplication? = null
     override fun OnMessasgeReceive(eventItem: String, message: Any) {
         Log.w("SocketIOApplication", "OnMessageReceive" + eventItem)
-
+        if (socketIOApplication!=null)
+            socketIOApplication.OnMessasgeReceive(eventItem,message)
     }
 
     override fun OnChanged(status: String) {
         Log.w("SocketIOApplication", "OnChanged " + status)
-
+        if (socketIOApplication!=null)
+            socketIOApplication.OnChanged(status)
     }
 
     internal var socket: Socket
@@ -29,8 +32,8 @@ open class SocketIOApplication : MultiDexApplication(), OnChangeStatusSocketList
         protected set
         get
 
-    public fun initialized(context: Context) {
-        this.context = context
+    public fun initialized(socketIOApplication: SocketIOApplication) {
+        this.context = socketIOApplication.context
     }
 
     public var socketControler: SocketController
@@ -51,7 +54,7 @@ open class SocketIOApplication : MultiDexApplication(), OnChangeStatusSocketList
         super.attachBaseContext(base)
         MultiDex.install(this)
 //        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            startActivity(Intent(base, ActivityStartService::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        startActivity(Intent(base, ActivityStartService::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
 //        }else{
 //            startService(Intent(base,ServiceClient::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
 //        }
