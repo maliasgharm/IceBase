@@ -29,7 +29,7 @@ Step 2. Add the dependency
 
 add Application class exstand with SocketIOApplication : 
 
-<java>
+```KOTLIN
 class Application : SocketIOApplication() {
     override fun OnChanged(status: String) {
         super.OnChanged(status)
@@ -46,6 +46,6 @@ class Application : SocketIOApplication() {
         initialized(base)
     }
 }
-</java>
+```
 
 
