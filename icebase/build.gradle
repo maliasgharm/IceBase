@@ -42,5 +42,5 @@ dependencies {
         // excluding org.json which is provided by Android
         exclude group: 'org.json', module: 'json'
     }
-    implementation 'com.github.maliasgharm:DatabaseExample:1.4'
+    implementation 'com.github.maliasgharm:DatabaseExample:1.5'
 }
