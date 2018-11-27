@@ -43,5 +43,4 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     implementation 'com.github.maliasgharm:DatabaseExample:1.5'
-
 }
