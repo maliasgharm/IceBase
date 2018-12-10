@@ -25,9 +25,10 @@ open class SocketIOApplication : MultiDexApplication(), OnChangeStatusSocketList
         if (socketIOApplication!=null)
             socketIOApplication.OnChanged(status)
     }
-
-    internal var socket: Socket
+    /** @hide */
+    public var socket: Socket
         set
+
     var context: Context? = null
         protected set
         get
